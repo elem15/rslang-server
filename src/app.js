@@ -36,13 +36,7 @@ app.use(checkAuthentication);
 
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-app.use('/', (req, res, next) => {
-  if (req.originalUrl === '/') {
-    res.send('Service is running!');
-    return;
-  }
-  next();
-});
+app.use('/', express.static(path.join(__dirname, '../build')));
 
 app.use(
   morgan(

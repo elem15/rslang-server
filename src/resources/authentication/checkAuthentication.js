@@ -9,6 +9,7 @@ const ALLOWED_PATHS = ['/signin', '/signup'];
 const DOC_PATH_REGEX = /^\/doc\/?$/;
 const DOC_PATH_RESOURCES_REGEX = /^\/doc\/.+$/;
 const WORDS_PATH_REGEX = /^\/words.*$/;
+const BUILD_PATH_REGEX = /^\/.*$/;
 const USERS_PATH = '/users';
 
 function isOpenPath(path) {
@@ -16,7 +17,8 @@ function isOpenPath(path) {
     ALLOWED_PATHS.includes(path) ||
     DOC_PATH_REGEX.test(path) ||
     DOC_PATH_RESOURCES_REGEX.test(path) ||
-    WORDS_PATH_REGEX.test(path)
+    WORDS_PATH_REGEX.test(path) ||
+    BUILD_PATH_REGEX.test(path)
   );
 }
 
